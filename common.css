@@ -1,0 +1,56 @@
+@charset "utf-8"
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap');
+
+
+/* common.css */
+
+html,body{margin: 0; font-size: 20px;}
+h1,h2,h3,h4,h5,h6,p,figure{margin: 0;}
+a{text-decoration: none;} /*밑줄없앰*/
+img{vertical-align: middle;} /*하단공간없앰*/
+*{ /* *는 모든태그를 의미 */
+    box-sizing: border-box;
+    font-size: 1rem; /*1rem이 100%니깐, 여기서는 20px을 가리킴*/
+    color: #555;
+}
+
+.f-nanum{font-family: 'Nanum Myeongjo', serif;}
+/*나눔명조체 사용가능한 클래스만듬*/
+
+header{
+    
+}
+header > div{
+    width: 1200px; margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+}
+header > div > h1{}
+header > div > h1 > a{font-size: 1.5rem;}
+header > div > nav{}
+header > div > nav a{
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 0 20px;
+    position: relative;
+}
+
+
+/* 공간선택자 (html에서 글자로 안넣는 이유는 디자인요소로 보기때문)*/
+
+header > div > nav a::after{
+    content:''; /* 필수속성! : content */
+    border-bottom:3px solid #f00;
+    /* display:block; */
+
+    position: absolute;
+    left:50%; bottom: -4px;
+    width: 0%;
+    transition: 0.5s;
+}
+/* 공간선택자는 맨뒤에! 띄어쓰기 안됨! (띄어쓰기는 자식을 의미하기 때문)*/
+header > div > nav a:hover::after{
+    width: 100%; left: 0;
+}
